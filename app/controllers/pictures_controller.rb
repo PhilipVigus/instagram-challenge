@@ -3,9 +3,13 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @picture = Picture.new(picture_params)
-    @picture.save
-    redirect_to @picture
+    if params[:picture] == nil || params[:picture][:picture] == ""
+      redirect_to new_picture_path, alert: "You must choose a picture to upload"
+    else
+      @picture = Picture.new(picture_params)
+      @picture.save
+      redirect_to @picture
+    end
   end
 
   def show

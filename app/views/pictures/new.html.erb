@@ -10,4 +10,10 @@
   <div>
   <%= form.submit "Submit" %>
   </div>
+
+  <% flash.each do |type, msg| %>
+    <div>
+      <%= msg %>
+    </div>
+  <% end %>
 <% end %>

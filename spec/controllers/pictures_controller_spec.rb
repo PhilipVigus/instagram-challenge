@@ -9,17 +9,26 @@ RSpec.describe PicturesController, type: :controller do
   end
 
   describe "POST /" do
-    before do
-      file = fixture_file_upload(Rails.root.join('spec/files/picture1.png'), 'image/png')
-      post :create, params: { picture: { picture: file } }
+    context "correct params" do
+      before do
+        file = fixture_file_upload(Rails.root.join('spec/files/picture1.png'), 'image/png')
+        post :create, params: { picture: { picture: file } }
+      end
+
+      it "creates a picture" do 
+        expect(Picture.first).to be
+      end
+
+      it "redirects to the correct url when a picture is created" do
+        expect(response).to redirect_to("/pictures/#{Picture.first.id}")
+      end
     end
 
-    it "creates a picture" do 
-      expect(Picture.first).to be
-    end
-
-    it "redirects to the correct url" do
-      expect(response).to redirect_to("/pictures/#{Picture.first.id}")
+    context "missing params" do
+      it "redirects back to pictures/new when a picture param is not specified" do
+        post :create, params: { picture: { picture: nil } }
+        expect(response).to redirect_to(new_picture_path)
+      end
     end
   end
 end
