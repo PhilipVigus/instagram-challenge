@@ -26,7 +26,7 @@ RSpec.describe PicturesController, type: :controller do
 
     context "missing params" do
       it "redirects back to pictures/new when a picture param is not specified" do
-        post :create, params: { picture: { picture: nil } }
+        post :create, params: nil
         expect(response).to redirect_to(new_picture_path)
       end
     end
