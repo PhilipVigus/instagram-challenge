@@ -17,6 +17,6 @@ RSpec.feature 'signing up to site', type: :feature do
     fill_in 'Email', with: 'drac@trans.com'
     fill_in 'Password', with: 'teetharepointy'
     click_on 'Submit'
-    expect(page).to have_content 'Unable to create new user, username or email are invalid'
+    expect(page).to have_content 'Unable to create new user'
   end
 end

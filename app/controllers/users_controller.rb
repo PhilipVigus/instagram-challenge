@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to '/login', notice: 'Successfully signed up, please log-in'
     else
-      flash.now.alert = 'Unable to create new user, username or email are invalid'
+      flash.now.alert = 'Unable to create new user'
       render :new
     end
   end
