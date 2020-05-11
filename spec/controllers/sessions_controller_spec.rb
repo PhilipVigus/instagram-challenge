@@ -10,16 +10,16 @@ RSpec.describe SessionsController, type: :controller do
 
   describe 'POST /' do
     it 'logs in a user' do
-      user = User.create(username: 'dracula', email: 'drac@trans.com', password: 'teeth')
-      post :create, params: { login: { username: 'dracula', password: 'teeth' } }
+      user = User.create(username: 'dracula', email: 'drac@trans.com', password: 'teetharepointy')
+      post :create, params: { login: { username: 'dracula', password: 'teetharepointy' } }
       expect(session[:user_id]).to eq user.id.to_s
     end
   end
 
   describe 'DELETE /' do
     it 'logs out a user' do
-      user = User.create(username: 'dracula', email: 'drac@trans.com', password: 'teeth')
-      post :create, params: { login: { username: 'dracula', password: 'teeth' } }
+      user = User.create(username: 'dracula', email: 'drac@trans.com', password: 'teetharepointy')
+      post :create, params: { login: { username: 'dracula', password: 'teetharepointy' } }
       delete :destroy
       expect(session[:user_id]).to eq nil
     end
