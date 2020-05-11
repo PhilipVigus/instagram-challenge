@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user.email.downcase!
 
     if @user.save
-      redirect_to new_user_path, notice: 'Successfully signed up, please log-in'
+      redirect_to '/login', notice: 'Successfully signed up, please log-in'
     else
       flash.now.alert = 'Unable to create new user, username or email are invalid'
       render :new
