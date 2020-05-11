@@ -20,7 +20,7 @@ RSpec.describe PicturesController, type: :controller do
       end
 
       it "redirects to the correct url when a picture is created" do
-        expect(response).to redirect_to("/pictures/#{Picture.first.id}")
+        expect(response).to redirect_to pictures_path
       end
     end
 
