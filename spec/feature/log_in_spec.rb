@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.feature 'logging in', type: :feature do
   scenario 'user successfully logs in' do
     User.create(username: 'dracula', email: 'drac@trans.com', password: 'teeth')
-    visit 'sessions/new'
+    visit '/login'
     fill_in 'Username', with: 'dracula'
-    fill_in 'password', with: 'teeth'
+    fill_in 'Password', with: 'teeth'
     click_on 'Submit'
-    expect(page).to have_content 'Welcome dracula'
+    expect(page).to have_content 'Welcome'
   end
 end
