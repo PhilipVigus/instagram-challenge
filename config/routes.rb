@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   resources :pictures, :users
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  delete '/logout' => 'sessions#delete'
+  delete '/logout' => 'sessions#destroy'
 end

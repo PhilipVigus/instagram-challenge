@@ -15,4 +15,13 @@ RSpec.describe SessionsController, type: :controller do
       expect(session[:user_id]).to eq user.id.to_s
     end
   end
+
+  describe 'DELETE /' do
+    it 'logs out a user' do
+      user = User.create(username: 'dracula', email: 'drac@trans.com', password: 'teeth')
+      post :create, params: { login: { username: 'dracula', password: 'teeth' } }
+      delete :destroy
+      expect(session[:user_id]).to eq nil
+    end
+  end
 end
