@@ -7,8 +7,12 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.email.downcase!
 
-    @user.save
-    redirect_to new_user_path, notice: 'Successfully signed up, please log-in'
+    if @user.save
+      redirect_to new_user_path, notice: 'Successfully signed up, please log-in'
+    else
+      flash.now.alert = 'Unable to create new user, username or email are invalid'
+      render :new
+    end
   end
 
   private
