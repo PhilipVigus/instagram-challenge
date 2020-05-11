@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:login][:password])
       session[:user_id] = user.id.to_s
-      redirect_to '/login', notice: 'Welcome'
+      redirect_to pictures_path, notice: 'Welcome'
     else
       redirect_to '/login', alert: 'Unable to log in - invalid username or password'
     end
