@@ -12,4 +12,9 @@ class SessionsController < ApplicationController
       redirect_to '/login', alert: 'Unable to log in - invalid username or password'
     end
   end
+
+  def delete
+    session[:user_id] = nil
+    redirect_to '/login', notice: 'Successfully logged out'
+  end
 end

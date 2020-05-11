@@ -13,6 +13,7 @@
     <div>
       <% if logged_in_user %>
         <%= "Welcome #{logged_in_user.username}" %>
+        <%= link_to "Log out", '/logout', method: :delete %>
       <% end %>
     </div>
     <%= yield %>
