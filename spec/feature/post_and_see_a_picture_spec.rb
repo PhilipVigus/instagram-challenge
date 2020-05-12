@@ -24,4 +24,18 @@ RSpec.feature 'posting pictures', type: :feature do
     click_on 'Submit'
     expect(page).to have_content 'You must choose a picture to upload'
   end
+
+  scenario 'post a picture with a caption' do
+    User.create(username: 'dracula', email: 'drac@trans.com', password: 'teetharepointy')
+    visit '/login'
+    fill_in 'Username', with: 'dracula'
+    fill_in 'Password', with: 'teetharepointy'
+    click_on 'Submit'
+    visit '/pictures/new'
+    attach_file('picture', 'spec/files/picture1.png')
+    fill_in 'Caption', with: 'An oh so hilarious picture of my favourite pet, batty the bat'
+    click_on 'Submit'
+    find("picture1.png").click
+    expect(page).to have_content('An oh so hilarious picture of my favourite pet, batty the bat')
+  end
 end
