@@ -8,7 +8,7 @@ RSpec.feature 'posting pictures', type: :feature do
     fill_in 'Username', with: 'dracula'
     fill_in 'Password', with: 'teetharepointy'
     click_on 'Submit'
-    visit '/pictures/new'
+    click_on 'Post a new picture'
     attach_file('picture', 'spec/files/picture1.png')
     click_on 'Submit'
     expect(page).to have_selector "img[src*=picture1]"
@@ -20,7 +20,7 @@ RSpec.feature 'posting pictures', type: :feature do
     fill_in 'Username', with: 'dracula'
     fill_in 'Password', with: 'teetharepointy'
     click_on 'Submit'
-    visit new_picture_path
+    click_on 'Post a new picture'
     click_on 'Submit'
     expect(page).to have_content 'You must choose a picture to upload'
   end
@@ -31,7 +31,7 @@ RSpec.feature 'posting pictures', type: :feature do
     fill_in 'Username', with: 'dracula'
     fill_in 'Password', with: 'teetharepointy'
     click_on 'Submit'
-    visit '/pictures/new'
+    click_on 'Post a new picture'
     attach_file('picture', 'spec/files/picture1.png')
     fill_in 'picture[caption]', with: 'An oh so hilarious picture of my favourite pet, batty the bat'
     click_on 'Submit'
