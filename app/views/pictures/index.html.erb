@@ -1,5 +1,6 @@
 <h1>All pictures</h1>
 
+<%= link_to 'Post a new picture', new_picture_path %>
 <% @pictures.each do |picture| %>
   <div>
     <%= image_tag picture.picture, width: '1000px' %>
