@@ -35,7 +35,8 @@ RSpec.feature 'posting pictures', type: :feature do
     attach_file('picture', 'spec/files/picture1.png')
     fill_in 'picture[caption]', with: 'An oh so hilarious picture of my favourite pet, batty the bat'
     click_on 'Submit'
-    find("picture1.png").click
+    picture = Picture.first
+    click_link(picture.id)
     expect(page).to have_content('An oh so hilarious picture of my favourite pet, batty the bat')
   end
 end
