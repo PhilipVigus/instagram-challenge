@@ -1,4 +1,6 @@
 class PicturesController < ApplicationController
+  before_action :restrict_route_access
+
   def new
   end
 
