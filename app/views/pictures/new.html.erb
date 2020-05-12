@@ -2,6 +2,12 @@
 
 <%= form_with scope: :picture, url: pictures_path, local: true do |form| %>
   <div>
+    <%= form.label :caption, 'Please enter a caption for your picture' %>
+  </div>
+  <div>
+    <%= form.text_field :caption %>
+  </div>
+  <div>
     <%= form.label :picture, 'Please choose a picture to upload' %>
   </div>
   <div>

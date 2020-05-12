@@ -35,7 +35,7 @@ RSpec.describe PicturesController, type: :controller do
     context "incorrect params" do
       it "redirects back to pictures/new when a picture param is not specified" do
         login
-        post :create, params: nil
+        post :create, params: { picture: { caption: "" } }
         expect(response).to redirect_to(new_picture_path)
       end
     end

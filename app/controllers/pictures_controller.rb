@@ -9,7 +9,7 @@ class PicturesController < ApplicationController
   end
 
   def create
-    if params[:picture] == nil
+    if params[:picture][:picture] == nil
       redirect_to new_picture_path, alert: "You must choose a picture to upload"
     else
       @picture = Picture.new(picture_params)
