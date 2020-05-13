@@ -5,3 +5,9 @@
 <div>
   <%= @picture.caption %>
 </div>
+<h2>Comments</h2>
+<% @picture.comments.each do |comment| %>
+  <div>
+    <%= comment.text %>
+  </div>
+<% end %>
