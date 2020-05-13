@@ -26,6 +26,6 @@ RSpec.describe Picture, type: :model do
 
   describe 'associations' do
     it { should belong_to(:user) }
-    it { should have_mant(:comments) }
+    it { should have_many(:comments) }
   end
 end
