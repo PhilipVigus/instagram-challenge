@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Picture, type: :model do
   let(:file) { fixture_file_upload(Rails.root.join('spec/files/picture1.png'), 'image/png') }
 
-  context 'validation' do
+  describe 'validations' do
     it 'is not valid without a picture' do
       picture = Picture.new(picture: nil)
       expect(picture).to_not be_valid
@@ -24,5 +24,8 @@ RSpec.describe Picture, type: :model do
     expect { picture.save }.to change(ActiveStorage::Attachment, :count).by 1
   end
 
-  it { should belong_to(:user) }
+  describe 'associations' do
+    it { should belong_to(:user) }
+    it { should have_mant(:comments) }
+  end
 end
