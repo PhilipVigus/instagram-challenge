@@ -37,4 +37,6 @@ RSpec.describe User, type: :model do
     user = User.new(username: 'batty', email: 'drac@trans.com', password: '123456789')
     expect(user).to_not be_valid
   end
+
+  it { should have_many(:pictures) }
 end
