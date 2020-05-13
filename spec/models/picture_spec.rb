@@ -10,13 +10,19 @@ RSpec.describe Picture, type: :model do
     end
   
     it 'is valid with a picture' do
+      user = User.create(username: 'dracula', email: 'drac@trans.com', password: 'teetharepointy')
       picture = Picture.new(picture: file)
+      picture.user = user
       expect(picture).to be_valid
     end
   end
 
   it 'attaches the picture file when you create it' do
+    user = User.create(username: 'dracula', email: 'drac@trans.com', password: 'teetharepointy')
     picture = Picture.new(picture: file)
+    picture.user = user
     expect { picture.save }.to change(ActiveStorage::Attachment, :count).by 1
   end
+
+  it { should belong_to(:user) }
 end
