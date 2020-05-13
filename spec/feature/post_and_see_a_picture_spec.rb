@@ -30,4 +30,10 @@ RSpec.feature 'posting pictures', type: :feature do
     click_link(picture.id)
     expect(page).to have_content('An oh so hilarious picture of my favourite pet, batty the bat')
   end
+
+  scenario 'see the user who posted each picture' do
+    attach_file('picture', 'spec/files/picture1.png')
+    click_on 'Submit'
+    expect(page).to have_content "Posted by dracula"
+  end
 end
