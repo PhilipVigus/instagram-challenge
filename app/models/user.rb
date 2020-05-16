@@ -5,4 +5,5 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { in: 8..20 }
   has_many :pictures
   has_many :comments
+  has_many :likes
 end
