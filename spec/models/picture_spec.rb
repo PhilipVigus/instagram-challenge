@@ -4,16 +4,21 @@ RSpec.describe Picture, type: :model do
   let(:file) { fixture_file_upload(Rails.root.join('spec/files/picture1.png'), 'image/png') }
 
   describe 'validations' do
-    it 'is not valid without a picture' do
-      picture = Picture.new(picture: nil)
+    let(:user) { User.create(username: 'dracula', email: 'drac@trans.com', password: 'teetharepointy') }
+    
+    it 'is valid with a picture and user' do
+      picture = Picture.new(picture: file, user_id: user.id)
+      expect(picture).to be_valid
+    end
+
+    it 'is invalid without a user' do
+      picture = Picture.new(picture: file)
       expect(picture).to_not be_valid
     end
-  
-    it 'is valid with a picture' do
-      user = User.create(username: 'dracula', email: 'drac@trans.com', password: 'teetharepointy')
-      picture = Picture.new(picture: file)
-      picture.user = user
-      expect(picture).to be_valid
+
+    it 'is invalid without a picture' do
+      picture = Picture.new(user_id: user.id)
+      expect(picture).to_not be_valid
     end
   end
 
