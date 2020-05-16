@@ -5,6 +5,7 @@ class LikesController < ApplicationController
   def toggle
     like = Like.find_by(user_id: logged_in_user.id, picture_id: params[:picture_id])
     like ? remove_like(like) : add_like(params[:picture_id])
+    redirect_to Picture.find(params[:picture_id])
   end
 
   def remove_like(like)

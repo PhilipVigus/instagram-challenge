@@ -8,7 +8,8 @@ RSpec.feature 'like pictures', type: :feature do
     attach_file('picture', 'spec/files/picture1.png')
     click_on 'Submit'
     create_user_and_login('batty', 'bat@cave.com', 'flyflyfly')
-    click_on "like_picture_#{Picture.first.id}"
-    expect(page).to have_content '1 like'
+    click_link(Picture.first.id)
+    click_on "like_picture"
+    expect(page).to have_button '1 like'
   end
 end

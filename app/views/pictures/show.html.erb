@@ -5,6 +5,11 @@
 <div>
   <%= @picture.caption %>
 </div>
+<div>
+  <%= form_with model: [ @picture, @picture.likes.build ], local: true do |form| %>
+    <%= form.submit pluralize(@picture.likes.length - 1, 'like'), id: 'like_picture' %>
+  <% end %>
+</div>
 <h2>Comments</h2>
 <% @picture.comments.each do |comment| %>
   <div>
