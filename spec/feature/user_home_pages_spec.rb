@@ -19,4 +19,11 @@ RSpec.feature 'user home pages', type: :feature do
     visit "/users/#{User.last.id}"
     expect(page).to_not have_selector "img[src*=picture1]"
   end
+
+  scenario 'see pictures youve liked' do
+    create_user_and_login('batty', 'bat@cave.com', 'flyflyfly')
+    Like.create(user_id: User.last.id, picture_id: Picture.first.id)
+    visit "/users/#{User.last.id}"
+    expect(page).to have_selector "img[src*=picture1]"
+  end
 end
