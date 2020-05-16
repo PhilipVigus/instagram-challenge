@@ -1,0 +1,17 @@
+<h1>All pictures</h1>
+
+<%= link_to 'Post a new picture', new_picture_path %>
+<% @pictures.each do |picture| %>
+  <div>
+  <%= "Posted by #{picture.user.username}" %>
+  </div>
+  <div>
+    <%= link_to image_tag(picture.picture, width: '1000px'), picture, id: picture.id %>
+  </div>
+  <div>
+    <%= form_with model: [ picture, picture.comments.build ], local: true do |form| %>
+      <%= form.text_field :text, id: "comment_#{picture.id}" %>
+      <%= form.submit id: "submit_comment_#{picture.id}" %>
+    <% end %>
+  </div>
+<% end %>

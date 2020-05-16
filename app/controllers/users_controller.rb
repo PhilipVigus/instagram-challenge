@@ -15,6 +15,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @pictures = User.find(params[:id]).pictures
+  end
+
   private
 
   def user_params
