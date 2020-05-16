@@ -5,7 +5,9 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(username: params[:login][:username])
 
-    if user && user.authenticate(params[:login][:password])
+    # the &. is safe navigation. authenticate will only be called if user exists
+    # if not, the predicate will be false
+    if user&.authenticate(params[:login][:password])
       session[:user_id] = user.id.to_s
       redirect_to pictures_path, notice: 'Welcome'
     else
