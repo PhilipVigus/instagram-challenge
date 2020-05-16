@@ -3,7 +3,9 @@
 <%= link_to 'Post a new picture', new_picture_path %>
 <% @pictures.each do |picture| %>
   <div>
-  <%= "Posted by #{picture.user.username}" %>
+    <%= link_to logged_in_user do %>
+      <%= "Posted by #{picture.user.username}" %>
+    <% end %>
   </div>
   <div>
     <%= link_to image_tag(picture.picture, width: '1000px'), picture, id: picture.id %>

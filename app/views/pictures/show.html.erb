@@ -1,5 +1,10 @@
 <h1>A single picture</h1>
 <div>
+  <%= link_to logged_in_user do %>
+    <%= "Posted by #{@picture.user.username}" %>
+  <% end %>
+</div>
+<div>
   <%= image_tag @picture.picture %>
 </div>
 <div>
