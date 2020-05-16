@@ -4,11 +4,7 @@ class LikesController < ApplicationController
   # it will do for now
   def toggle
     like = Like.find_by(user_id: logged_in_user.id, picture_id: params[:picture_id])
-    if like
-      remove_like(like)
-    else
-      add_like(params[:picture_id])
-    end
+    like ? remove_like(like) : add_like(params[:picture_id])
   end
 
   def remove_like(like)
