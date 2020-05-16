@@ -11,14 +11,12 @@ RSpec.describe CommentsController, type: :controller do
       expect(response).to redirect_to('/login')
     end
 
-    xit "creates a comment" do
+    it "creates a comment" do
       login
       file = fixture_file_upload(Rails.root.join('spec/files/picture1.png'), 'image/png')
-      p 'file'
-      p file
-      picture = Picture.create(picture: file)
-      p picture
-      expect(true).to eq false
+      picture = Picture.create(user_id: User.first.id, picture: file)
+      post :create, params: { picture_id: picture.id, comment: { text: "This is a comment"} }
+      expect(Comment.first).to be
     end
   end
 end
