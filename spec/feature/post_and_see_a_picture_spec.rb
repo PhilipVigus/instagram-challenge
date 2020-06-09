@@ -33,6 +33,6 @@ RSpec.feature 'posting pictures', type: :feature do
   scenario 'see the user who posted each picture' do
     attach_file('picture', 'spec/files/picture1.png')
     click_on 'Submit'
-    expect(page).to have_content "Posted by dracula"
+    expect(page).to have_content "#dracula"
   end
 end

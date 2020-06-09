@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>InstagramChallenge</title>
+    <title>MonsterGram</title>
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e282d961ad.js" crossorigin="anonymous"></script>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,12 +13,20 @@
   </head>
 
   <body>
-    <div>
+    <div class="page-banner">
+      <div class="main-title">
+        <i class="fab fa-optin-monster"></i>
+        Monstergram
+      </div>
       <% if logged_in_user %>
-        <%= "Welcome #{logged_in_user.username}" %>
-        <%= link_to "Log out", '/logout', method: :delete %>
+        <div class="user-welcome">
+          <%= "Welcome #{logged_in_user.username}" %>
+          <%= link_to "Log out", '/logout', method: :delete %>
+        </div>
       <% end %>
     </div>
-    <%= yield %>
+    <div class="main-content-container">
+      <%= yield %>
+    </div>
   </body>
 </html>

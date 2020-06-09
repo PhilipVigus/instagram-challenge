@@ -1,46 +1,15 @@
 Instagram Challenge
 ===================
 
-## Instructions
+This project is my attempt at completing the Instagram weekend challenge at Makers Academy. The challenge was to write a clone of Instagram using Ruby on Rails.
 
-* Challenge time: one weekend
-* Feel free to use Google, your notes, books, etc., but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+## My implementation
 
-## Task
+Given the broad nature of the challenge, my first task was to try to specify the features I wanted to implement. I wrote these in the form of user stories as specified below. It was never my intention to implement all of these within the initial time frame of the challenge (1 weekend), but I found it helpful to get a clearer understanding of what I was trying to achieve. The numbers below each story are my estimates of the time required to implement that feature, based on the scale used in planning poker.
 
-Build Instagram: Simple huh!
+### User stories
 
-Your challenge is to build Instagram using Rails. You'll need **users** who can post **pictures**, write **comments** on pictures and **like** a picture. Style it like Instagram's website (or more awesome).
-
-Bonus if you can add filters!
-
-## How to start
-
-1. Produce some stories, break them down into tasks, and estimate
-2. Fork this repo, clone, etc
-3. Initialize a new rails project
-
-Remember to proceed in small steps! Getting confused? Make the steps even smaller.
-
-## Code Quality
-
-For linting, you can use the `.rubocop.yml` in this repository (or your own!).
-You'll need these gems:
-
-```ruby
-gem "rubocop", "0.79.0", require: false
-gem "rubocop-rails"
 ```
-
-You can also lint Javascript, CSS, and ERB — feel free to research this. These
-will help you to train yourself to produce cleaner code — and will often alert
-you to mistakes or mishaps!
-
-## User stories
-
 As a Monster
 so that I can share my experiences and thoughts with others
 I want to post pictures
@@ -118,3 +87,5 @@ As a Monster
 so that I can tell a story
 I want to be able to post multiple pictures
 13
+```
+
