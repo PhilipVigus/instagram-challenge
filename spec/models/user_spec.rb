@@ -43,5 +43,6 @@ RSpec.describe User, type: :model do
   describe 'associations' do
     it { should have_many(:pictures) }
     it { should have_many(:comments) }
+    it { should have_many(:likes) }
   end
 end

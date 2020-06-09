@@ -1,9 +1,23 @@
 <h1>A single picture</h1>
 <div>
+  <%= link_to logged_in_user do %>
+    <%= "Posted by #{@picture.user.username}" %>
+  <% end %>
+</div>
+<div>
   <%= image_tag @picture.picture %>
 </div>
 <div>
   <%= @picture.caption %>
+</div>
+<div>
+  <%= form_with model: [ @picture, @picture.likes.build ], local: true do |form| %>
+    <% if @picture.user.id != logged_in_user.id %>
+      <%= form.submit pluralize(@picture.likes.length - 1, 'like'), id: 'like_picture' %>
+    <% else %>
+      <%= form.submit pluralize(@picture.likes.length - 1, 'like'), id: 'like_picture', disabled: true %>
+    <% end %>
+  <% end %>
 </div>
 <h2>Comments</h2>
 <% @picture.comments.each do |comment| %>

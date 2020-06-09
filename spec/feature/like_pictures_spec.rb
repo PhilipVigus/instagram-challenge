@@ -2,13 +2,40 @@ require 'rails_helper'
 require 'login_helper'
 
 RSpec.feature 'like pictures', type: :feature do
-  scenario 'like a picture' do
+  before do
     create_user_and_login('dracula', 'drac@trans.com', 'teetharepointy')
     click_on 'Post a new picture'
     attach_file('picture', 'spec/files/picture1.png')
     click_on 'Submit'
+  end
+
+  scenario 'like a picture' do
     create_user_and_login('batty', 'bat@cave.com', 'flyflyfly')
-    click_on "like_picture_#{Picture.first.id}"
-    expect(page).to have_content '1 like'
+    click_link(Picture.first.id.to_s)
+    click_on "like_picture"
+    expect(page).to have_button '1 like'
+  end
+
+  scenario 'unlike a picture' do
+    create_user_and_login('batty', 'bat@cave.com', 'flyflyfly')
+    click_link(Picture.first.id.to_s)
+    click_on 'like_picture'
+    click_on 'like_picture'
+    expect(page).to have_button '0 likes'
+  end
+
+  scenario 'unable to like own picture' do
+    click_link(Picture.first.id.to_s)
+    expect(page).to have_button '0 likes', disabled: true
+  end
+
+  scenario 'multiple likes from different users' do
+    create_user_and_login('batty', 'bat@cave.com', 'flyflyfly')
+    click_link(Picture.first.id.to_s)
+    click_on "like_picture"
+    create_user_and_login('frankie', 'monster@outcast.com', 'itsaliveitsalive')
+    click_link(Picture.first.id.to_s)
+    click_on "like_picture"
+    expect(page).to have_button '2 likes'
   end
 end

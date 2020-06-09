@@ -7,7 +7,7 @@ RSpec.describe CommentsController, type: :controller do
       # it doesn't matter what id's are used here.
       # they just need to be specified for the post route
       # to work at all
-      post :create, params: { user_id: 1, picture_id: 1}
+      post :create, params: { user_id: 1, picture_id: 1 }
       expect(response).to redirect_to('/login')
     end
 
@@ -15,7 +15,7 @@ RSpec.describe CommentsController, type: :controller do
       login
       file = fixture_file_upload(Rails.root.join('spec/files/picture1.png'), 'image/png')
       picture = Picture.create(user_id: User.first.id, picture: file)
-      post :create, params: { picture_id: picture.id, comment: { text: "This is a comment"} }
+      post :create, params: { picture_id: picture.id, comment: { text: "This is a comment" } }
       expect(Comment.first).to be
     end
   end
