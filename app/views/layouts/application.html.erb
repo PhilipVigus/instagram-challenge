@@ -21,7 +21,7 @@
       <% if logged_in_user %>
         <div class="user-welcome">
           <%= "Welcome #{logged_in_user.username}" %>
-          <%= link_to "Log out", '/logout', method: :delete %>
+          <%= link_to "(log out)", '/logout', method: :delete %>
         </div>
       <% end %>
     </div>

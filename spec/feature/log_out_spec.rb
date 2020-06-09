@@ -7,7 +7,7 @@ RSpec.feature 'logging out', type: :feature do
     fill_in 'Username', with: 'dracula'
     fill_in 'Password', with: 'teetharepointy'
     click_on 'Submit'
-    click_on 'Log out'
+    click_on '(log out)'
     expect(page).to have_current_path '/login'
     expect(page).not_to have_content 'Welcome dracula'
   end
