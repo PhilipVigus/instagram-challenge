@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'logging in', type: :feature do
   scenario 'user successfully logs in' do
     User.create(username: 'dracula', email: 'drac@trans.com', password: 'teetharepointy')
-    visit '/login'
+    visit '/'
     fill_in 'Username', with: 'dracula'
     fill_in 'Password', with: 'teetharepointy'
     click_on 'Submit'
@@ -12,7 +12,7 @@ RSpec.feature 'logging in', type: :feature do
 
   scenario 'user unsuccessfully logs in' do
     User.create(username: 'dracula', email: 'drac@trans.com', password: 'teetharepointy')
-    visit '/login'
+    visit '/'
     fill_in 'Username', with: 'dracula'
     fill_in 'Password', with: 'bitey-bitey'
     click_on 'Submit'
