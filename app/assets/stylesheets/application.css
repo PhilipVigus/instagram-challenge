@@ -24,6 +24,10 @@ body {
   margin: 0;
 }
 
+a {
+  color: inherit;
+}
+
 .page-banner {
   background-color: black;
   color: #e3dac9;
