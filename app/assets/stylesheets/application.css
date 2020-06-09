@@ -26,7 +26,7 @@ body {
 
 .page-banner {
   background-color: black;
-  color: white;
+  color: #e3dac9;
   display: flex;
   justify-content: space-between;
   padding: 10px 10px 10px 30px;
@@ -44,5 +44,19 @@ body {
   align-self: flex-end;
 }
 .main-content-container {
+  margin: 0 300px;
+  color: white;
+}
 
+.picture-summary-container {
+  background-color: black;
+  padding: 10px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+}
+
+.picture-author {
+  font-size: 30px;
+  color: yellowgreen;
+  margin-bottom: 10px;
 }
