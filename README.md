@@ -5,8 +5,11 @@ This project is my attempt at completing the Instagram weekend challenge at Make
 
 ## My implementation
 
-## User stories
+Given the broad nature of the challenge, my first task was to try to specify the features I wanted to implement. I wrote these in the form of user stories as specified below. It was never my intention to implement all of these within the initial time frame of the challenge (1 weekend), but I found it helpful to get a clearer understanding of what I was trying to achieve. The numbers below each story are my estimates of the time required to implement that feature, based on the scale used in planning poker.
 
+### User stories
+
+```
 As a Monster
 so that I can share my experiences and thoughts with others
 I want to post pictures
@@ -84,3 +87,5 @@ As a Monster
 so that I can tell a story
 I want to be able to post multiple pictures
 13
+```
+
