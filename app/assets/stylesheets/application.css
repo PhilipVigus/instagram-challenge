@@ -22,6 +22,7 @@ body {
   background-color:#830303;
   font-family: 'Roboto', sans-serif;
   margin: 0;
+  font-size: 16px;
 }
 
 a {
@@ -82,9 +83,13 @@ a {
 .form-field {
   width: 100%;
   margin: 5px 0;
+  padding: 5px;
+  font-size: 16px;
 }
 
 .form-button {
   width: 100%;
   margin: 10px 0;
+  font-size: 16px;
+  padding: 5px;
 }
