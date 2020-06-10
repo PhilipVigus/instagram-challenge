@@ -35,4 +35,11 @@ RSpec.feature 'posting pictures', type: :feature do
     click_on 'Submit'
     expect(page).to have_content "#dracula"
   end
+
+  scenario 'post a picture with the caption as part of the picture list' do
+    attach_file('picture', 'spec/files/picture1.png')
+    fill_in 'picture[caption]', with: 'An oh so hilarious picture of my favourite pet, batty the bat'
+    click_on 'Submit'
+    expect(page).to have_content('An oh so hilarious picture of my favourite pet, batty the bat')
+  end
 end
