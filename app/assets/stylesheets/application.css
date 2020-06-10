@@ -93,3 +93,22 @@ a {
   font-size: 16px;
   padding: 5px;
 }
+
+.picture-single-container {
+  background-color: black;
+  padding: 10px;
+  margin: 15px 50px;
+  border-radius: 10px;
+}
+
+.comment {
+  border: 1px solid white;
+  margin: 5px 0;
+  padding: 5px;
+}
+
+.comment-author-time {
+  font-style: italic;
+  font-size: 12px;
+  text-align: right;
+}

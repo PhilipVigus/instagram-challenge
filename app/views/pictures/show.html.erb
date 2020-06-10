@@ -1,27 +1,35 @@
 <h1>A single picture</h1>
-<div>
-  <%= link_to logged_in_user do %>
-    <%= "Posted by #{@picture.user.username}" %>
-  <% end %>
-</div>
-<div>
-  <%= image_tag @picture.picture %>
-</div>
-<div>
-  <%= @picture.caption %>
-</div>
-<div>
-  <%= form_with model: [ @picture, @picture.likes.build ], local: true do |form| %>
-    <% if @picture.user.id != logged_in_user.id %>
-      <%= form.submit pluralize(@picture.likes.length - 1, 'like'), id: 'like_picture' %>
-    <% else %>
-      <%= form.submit pluralize(@picture.likes.length - 1, 'like'), id: 'like_picture', disabled: true %>
-    <% end %>
-  <% end %>
-</div>
-<h2>Comments</h2>
-<% @picture.comments.each do |comment| %>
+<div class="picture-single-container">
   <div>
-    <%= comment.text %>
+    <%= link_to logged_in_user do %>
+      <%= "Posted by #{@picture.user.username}" %>
+    <% end %>
   </div>
-<% end %>
+  <div>
+    <%= image_tag(@picture.picture, width: '100%') %>
+  </div>
+  <div>
+    <%= @picture.caption %>
+  </div>
+  <div>
+    <%= form_with model: [ @picture, @picture.likes.build ], local: true do |form| %>
+      <% if @picture.user.id != logged_in_user.id %>
+        <%= form.submit pluralize(@picture.likes.length - 1, 'like'), id: 'like_picture' %>
+      <% else %>
+        <%= form.submit pluralize(@picture.likes.length - 1, 'like'), id: 'like_picture', disabled: true %>
+      <% end %>
+    <% end %>
+  </div>
+  <div>
+    <% @picture.comments.each do |comment| %>        
+      <div class="comment">
+        <div class="comment-author-time">
+          <%= "##{comment.user.username} - #{comment.created_at.strftime("%R - %d/%m/%Y")}" %> 
+        </div>
+        <div>
+          <%= comment.text %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
