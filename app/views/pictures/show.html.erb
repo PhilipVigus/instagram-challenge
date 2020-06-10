@@ -20,6 +20,7 @@
       <% end %>
     <% end %>
   </div>
+
   <div>
     <% @picture.comments.each do |comment| %>        
       <div class="comment">
@@ -30,6 +31,13 @@
           <%= comment.text %>
         </div>
       </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form_with model: [ @picture, @picture.comments.build ], local: true do |form| %>
+      <%= form.text_field :text, id: "comment_#{@picture.id}" %>
+      <%= form.submit id: "submit_comment_#{@picture.id}" %>
     <% end %>
   </div>
 </div>
